@@ -1,0 +1,292 @@
+html {
+    scroll-behavior: smooth; /* Yumuşak kaydırma efekti */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FBF7F3;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* SCROLLBAR GİDER */
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #F6E9EC;
+    box-shadow: 0 2px 15px rgba(75, 0, 130, 0.05); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #A33A5E;
+    font-style: italic;
+}
+
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #A33A5E;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.nav-bar a:hover {
+    color: #C86B8A;
+}
+
+.main-wrapper {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /*yukarıdan baslat*/
+    align-items: center;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.ritual-intro {
+    max-width: 900px;
+    margin: 0 0 50px 0;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.ritual-intro h1 {
+    font-size: 36px;
+    color: #A33A5E;
+    font-style: italic;
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-shadow: 0 4px 12px rgba(184, 74, 118, 0.35);
+}
+
+.ritual-tagline {
+    font-size: 20px;
+    color: #B07A5A;
+    margin-bottom: 12px;
+    font-style: italic;
+    text-shadow: 0 4px 12px rgba(226, 172, 23, 0.35);
+    font-weight: 500;
+}
+
+.ritual-description {
+    font-size: 15px;
+    color: #8F7A6A;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-weight: 500;
+    text-shadow: 0 4px 12px rgba(70, 65, 0, 0.35);
+}
+
+.ritual-invite {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #A33A5E;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 0 4px 12px rgba(184, 74, 118, 0.35);
+}
+
+.skin-card-list {
+    display: flex;
+    justify-content: center;            
+    gap: 40px;      
+    width: 100%;             
+    max-width: 1600px;           
+    margin: 0;              
+    padding: 0 20px;             
+}
+
+.skin-card {
+    width: 300px;
+    height: 420px;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.skin-card:hover {
+    transform: translateY(-10px); 
+}
+
+.skin-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    cursor: pointer;
+}
+
+.skin-card.flipped .skin-card-inner {
+    transform: rotateY(180deg);
+}
+
+.skin-card-front, .skin-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(163, 58, 94, 0.13);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skin-card:hover .skin-card-front, .skin-card:hover .skin-card-back {
+    box-shadow: 0 25px 50px rgba(163, 58, 94, 0.26); 
+}
+
+.skin-card-front {
+    background: transparent; 
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.skin-card-front::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,rgba(0, 0, 0, 0.55),rgba(0, 0, 0, 0.25),rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.skin-card-front h3 {
+    color: #ffeff4;
+    font-style: italic;
+    font-size: 30px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-shadow: 0 4px 12px rgba(255, 226, 241, 0.95);
+}
+
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.skin-card-front h3, .skin-card-front span {
+    position: relative;
+    z-index: 2;  
+}
+
+.skin-card-front span {
+    font-size: 14px;
+    color: #f58c3c;
+    font-style: italic;
+    letter-spacing: 0.6px;
+    font-style: italic;
+    font-weight: 700;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+.skin-card-front span:hover {
+    color: #A33A5E;
+}
+
+.skin-card-back {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transform: rotateY(180deg);
+    font-size: 14px;
+    color:  #6f3b4f;
+    text-align: left;
+    list-style-type: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: linear-gradient(180deg,#FFFFFF 0%,#f1f0f0 100%);
+    border: 1px solid rgba(184, 74, 118, 0.14);
+    box-shadow: 0 24px 60px rgba(184, 74, 118, 0.16);
+}
+
+.skin-card-back h4{
+    margin: 0 0 14px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #b84a76;
+    letter-spacing: 0.6px;
+    text-shadow: 0 4px 12px rgba(243, 81, 165, 0.55);
+}
+
+.skin-card-back h4::after{
+    content: "";
+    display: block;
+    margin-top: 10px;
+    height: 1px;
+    width: 70%;
+    background: linear-gradient(to right, rgba(184,74,118,0.55), transparent);
+}
+
+.skin-card-back::-webkit-scrollbar {
+    display: none; 
+}
+
+.skin-card-back ul{
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0 0;
+}
+
+.skin-card-back li{
+    position: relative;
+    padding-left: 22px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #6f3b4f;
+}
+
+.skin-card-back li::before{
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgba(184, 74, 118, 0.9);
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.skin-card-back li strong{
+    color: #9c6b3c;             
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.skin-card-back li:last-child{
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(184,74,118,0.22);
+    font-style: italic;
+    color: rgba(111,59,79,0.92);
+}
+
+.skin-card.flipped .skin-card-back{
+    box-shadow: 0 28px 70px rgba(184, 74, 118, 0.22);
+}

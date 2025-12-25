@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RITUALÉ</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4R0E6T8t3Tz8kQ0Pp2z1G5xg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!--Logo ve navbar kısmı başlangıç-->
+    <nav class="nav-bar">
+        <div class="logo">RITUALÉ</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#ana-sayfa">Ana Sayfa</a></li>
+            <li><a href="#tavsiyeler">Tavsiyeler</a></li>
+            <li><a href="#rutinler">Rutinler</a></li>
+            <li><a href="#denge">Denge</a></li>
+            <li><a href="#makale">Makaleler</a></li>
+        </ul>
+    </nav>
+    <!--Logo ve navbar kısmı bitiş-->
+
+    <!--Header alanı başlangıç-->
+    <header class="hero-area" id="ana-sayfa">
+        <div class="hero-section">
+            <h1>CİLDİNİ GERÇEKTEN TANIYOR MUSUN?</h1>
+            <p class="hero-manifesto">Bakım bir alışkanlık değil, ritüeldir.</p>
+            <p>Cildini dinle.</p>
+            <button class="btn-start" onclick="testiAc()">Cilt Ritüelini Keşfet</button>
+
+            <div class="little-msg">
+                <span>✨ Cilt tipini belirleyen kısa bir test....</span>
+            </div>
+        </div>
+
+        <div class="hero-scroll-window">
+            <div class="scroll-track">
+                <div class="skin-card">Kuru Cilt</div>
+                <div class="skin-card">Yağlı Cilt</div>
+                <div class="skin-card">Karma Cilt</div>
+                <div class="skin-card">Hassas Cilt</div>
+                <div class="skin-card">Normal Cilt</div>
+
+                <div class="skin-card">Kuru Cilt</div>
+                <div class="skin-card">Yağlı Cilt</div>
+                <div class="skin-card">Karma Cilt</div>
+                <div class="skin-card">Hassas Cilt</div>
+                <div class="skin-card">Normal Cilt</div>
+            </div>
+
+            <div class="fade-top"></div>
+            <div class="fade-bottom"></div>
+        </div>
+    </header>
+    <!--Header alanı bitiş-->
+
+    <!--İçerik Section alanı başlangıç-->
+    <section class="features-section" id="tavsiyeler">
+        <div class="container">
+            <h2 class="section-title">Sana Özel Rehberler</h2>
+
+            <div class="card-list">
+                <div class="info-card">
+                    <div class="rituel-title">1. Uyanış</div>
+                    <h3>Arınma Ritüeli</h3>
+                    <p>Evdeki malzemelerle yapabileceğin, cildini canlandıran tarifler.</p>
+                    <a href="arinma.html" class="read-more">Ritüeli Keşfet</a>
+                </div>
+
+                <div class="info-card">
+                    <div class="rituel-title">2. Koruma</div>
+                    <h3>Koruma Ritüeli</h3>
+                    <p>Leke oluşumunu önlemek için güneş kremi rehberi.</p>
+                    <a href="koruma.html" class="read-more">Bu Yolculuğu Aç</a>
+                </div>
+
+                <div class="info-card">
+                    <div class="rituel-title">3. Besleme</div>
+                    <h3>Besleme Ritüeli</h3>
+                    <p>Cildinin neme doyacağı en doğru içerikleri öğren.</p>
+                    <a href="besleme.html" class="read-more">Rehbere Dokun</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--İçerik Section alanı bitiş-->
+
+    <!--Rutin Section alanı başlangıç-->
+    <section class="routine-banner-section" id="rutinler">
+
+        <div class="container">
+            
+            <div class="routine-banner-container">
+                <div class="routine-text">
+                    <h2>DOĞAL GÜZELLİĞİNİ KEŞFET!</h2>
+                    <p>En etkili cilt bakım rutinleriyle kendini şımartmanın tam zamanı.</p>
+                    <a href="rutinler.html" class="btn-routine">Cildin İçin Bir Yol Seç</a>
+                    <div class="routine-badges">
+                        <div class="routine-badge">🌿 Doğadan Gelen</div>
+                        <div class="routine-badge">🧪 Cilde Saygılı</div>
+                        <div class="routine-badge">⏳ Günlük Ritme Uygun</div>
+                    </div>
+                    <div class="routine-steps">
+                        <span>Arın</span>
+                        <span>→</span>
+                        <span>Besle</span>
+                        <span>→</span>
+                        <span>Nemle tamamla...</span>
+                    </div>
+                </div>
+
+                <div class="routine-image-box">
+                    <img src="images/skincare.png" alt="Cilt bakimi yapan bir kadin">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Rutin Section alanı bitiş-->
+
+    <!--Wellness Section alanı başlangıç-->
+    <section class="wellnes-section" id="denge">
+        <div class="container">
+            <h2 class="wellnes-title">Dengeyi Zorlamadan Kur, Bedenini Dinle</h2>
+            <div class="wellnes-container">
+                <div class="wellnes-card bmi-card">
+                    <h3>🧘‍♀️ Vücut Kitle Endeksi</h3>
+                    <p>Bu bir ölçüm değil, bir farkındalık.</p>
+                    <div class="input-area">
+                        <div class="input-group">
+                            <label>Boyun(cm): </label>
+                            <input type="number" id="boy" placeholder="Örn: 170">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Kilon(kg): </label>
+                            <input type="number" id="kilo" placeholder="Örn: 65">
+                        </div>
+                    </div>
+
+                    <button class="btn-calculate" onclick="hesaplaBMI()">Kendinle Tanış</button>
+                    <div id="bmiSonuc" class="result"></div>
+                </div>
+
+                <div class="wellnes-card water-card">
+                    <h2>💧 Günlük Su Takibi</h2>
+                    <p>Bedenini içeriden hatırla...</p>
+                    <div id="mesaj-alan" class="mesaj"></div>
+                    <button id="su-ekle-btn">Su İçtim!</button>
+                    <div id="bardaklar-kutu"> </div>  
+                    <p class="sayac-bilgi">Toplam: <span id="mevcut-sayi">0</span> / 8</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!--Wellness Section alanı bitiş-->
+
+    <!--Cilt tipi testi başlangıç-->
+    <div id="testModal" class="modalOverlay">
+        <div class="modalCard">
+            <button class="btn-close" onclick="testiKapat()">X</button>
+            <div id="test-icerik">
+                <h1 id="ana-baslik">Cilt Tipi Testi</h1>
+                <h2 id="soru-baslik">Soru 1</h2>
+                <p id="soru-metni" class="question-text">Cildinle baş başa kaldığında, temizleme sonrası ilk hissin ne olur?</p>
+
+                <div class="options-grid" id="siklar-alani">
+                </div>
+            </div>
+
+            <div id="sonuc-ekrani" style="display: none;">
+                <div class="result-icon">✨</div>
+                <h2> Cilt Tipin: <span id="cilt-tipi-sonuc">...</span></h2>
+                <p id="cilt-aciklamasi">Senin cildin neme ihtiyaç duyuyor.</p>
+                <button class="btn-restart" onclick="testiYenidenBaslat()">Testi Tekrarla 🔄</button>
+                <a href="#rutinler" class="btn-go-routine" onclick="testiKapat()">Bu Ritüele Uygun Rutinimi Gör</a>
+            </div>
+        </div>
+    </div>
+    <!--Cilt tipi testi bitiş-->
+
+    <!--öneriler kısmı başlangıç-->
+    <div class="library-container" id="makale">
+        <h2>Bakım Notları</h2>
+        <div class="ritual-library">
+            <div class="article-container">
+                <h3 class="article-title">Uzman Notları</h3>
+                <p class="article-description">Güncel araştırmalar, sade anlatımlar</p>
+                <div class="article-cards">
+                    <div class="a-card">
+                        <div class="a-img">
+                            <img src="images/makale1.png" alt="makale resmi">
+                        </div>
+
+                        <div class="article">
+                            <h4>Cildinle İyi Geçinmenin Temelleri</h4>
+                            <p>Nazik temizlik, düzenli nemlendirme ve güneş koruması…</br>
+                            Dermatologlara göre sağlıklı cilt karmaşık değil...</p>
+
+                            <a href="https://www.aad.org/public/everyday-care/skin-care-secrets/routine/healthier-looking-skin?utm" class="a-btn">İncele</a>
+                        </div>
+                    </div>
+
+                    <div class="a-card">
+                        <div class="a-img">
+                            <img src="images/makale2.png" alt="makale resmi">
+                        </div>
+
+                        <div class="article">
+                            <h4>Cilt Bakımı Bir Refleks Değil, Bilinçtir</h4>
+                            <p>Her ürün herkese iyi gelmez. </br>
+                            Dr. Gökhan Okan’a göre doğru bakım; cildi dinlemek...</p>
+
+                            <a href="https://en.wikipedia.org/wiki/G%C3%B6khan_Okan?utm" class="a-btn">İncele</a>
+                        </div>
+                    </div>
+
+                    <div class="a-card">
+                        <div class="a-img">
+                            <img src="images/makale3.png" alt="makale resmi">
+                        </div>
+
+                        <div class="article">
+                            <h4>Cilt Tipini Tanımadan Bakım Olmaz</h4>
+                            <p>Yağlı, kuru, hassas ya da karma… </br>
+                            Dr. Baumann’a göre cilt tipi sabit değil, <strong>değişken.</strong></br> 
+                            Mevsime, strese ve yaşama göre dönüşür. </br>
+                            Bakım da bu değişime uyum sağlamalı.</p>
+                            
+                            <a href="https://en.wikipedia.org/wiki/Leslie_Baumann?utm" class="a-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="magazine-container">
+                <h3 class="magazine-title"> Ritüel Rafı</h3>
+                <p class="magazine-description"> Yavaş okunan, iyi hissettiren sayfalar...</p>
+                <div class="magazine-cards">
+                    <a href="https://www.allure.com" class="magazine" target="_blank">
+                        <img src="images/allure.png" alt="allure dergisi">
+                        <h4 class="allure-title">Allure</h4>
+                        <p class="allure-desc">Bilimle desteklenen, abartısız cilt anlatıları.</p>
+                    </a>
+
+                    <a href="https://intothegloss.com" class="magazine" target="_blank">
+                        <img src="images/into-the-gloss.png" alt="into the gloss dergisi">
+                        <h4 class="itg-title">Into The Gloss</h4>
+                        <p class="itg-desc">Gerçek ciltler, gerçek rutinler, filtresiz bakım.</p>
+                    </a>
+
+                    <a href="https://www.thezoereport.com" class="magazine" target="_blank">
+                        <img src="images/the-zoe-report.png" alt="the zoe report dergisi">
+                        <h4 class="tzr-title">The Zoe Report</h4>
+                        <p class="tzr-desc">Bakımı aceleye getirmeyen sayfalar.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">Bakım Anları</h3>
+                <p class="video-description">Bir video. Bir nefes. Bakımın ekrandaki hali.</p>
+                <div class="video-cards">
+                    <a class="video-card" href="https://www.youtube.com/watch?v=Gm1Zfa10LLQ" target="_blank" rel="noopener">
+                        <div class="video-thumb">
+                            <img src="https://img.youtube.com/vi/Gm1Zfa10LLQ/hqdefault.jpg" alt="Why Vitamin C and SPF Work! | Dr Sam Bunting">
+                            <span class="video-play">▶</span>
+                        </div>
+                        <div class="video-meta">
+                            <h4 class="video-name">Why Vitamin C and SPF Work!</h4>
+                            <p class="video-creator">Dr Sam Bunting</p>
+                            <p class="video-note">Sabah ritüeli: C vitamini + SPF mantığını netleştir.</p>
+                        </div>
+                    </a>
+
+                    <a class="video-card" href="https://www.youtube.com/watch?v=WN0aR4YbAu8" target="_blank" rel="noopener">
+                        <div class="video-thumb">
+                            <img src="https://img.youtube.com/vi/WN0aR4YbAu8/hqdefault.jpg" alt="How to Double Cleanse like a Dermatologist">
+                            <span class="video-play">▶</span>
+                        </div>
+                        <div class="video-meta">
+                            <h4 class="video-name">How to Double Cleanse like a Dermatologist</h4>
+                            <p class="video-creator">Lab Muffin Beauty Science</p>
+                            <p class="video-note">Yormadan arınma: çift temizleme nasıl “doğru” yapılır?</p>
+                        </div>
+                    </a>
+
+                    <a class="video-card" href="https://www.youtube.com/watch?v=UhLDvD5N2bU" target="_blank" rel="noopener">
+                        <div class="video-thumb">
+                            <img src="https://img.youtube.com/vi/UhLDvD5N2bU/hqdefault.jpg" alt="Affordable Skincare That ACTUALLY Works">
+                            <span class="video-play">▶</span>
+                        </div>
+                        <div class="video-meta">
+                            <h4 class="video-name">Affordable Skincare That ACTUALLY Works</h4>
+                            <p class="video-creator">Lab Muffin Beauty Science</p>
+                            <p class="video-note">Gerçekçi ürün mantığı: “işe yarayan” rutin nasıl kurulur?</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--öneriler kısmı bitiş-->
+
+    <!--slide-in iletisim kısmı baslangıç-->
+    <button class="contact-fab" id="openContact">✦ İletişim</button>
+
+    <!-- Arka plan karartma -->
+    <div class="contact-overlay" id="contactOverlay"></div>
+
+    <!--acilir panel-->
+    <div class="contact-panel" id="contactPanel">
+        <button class="close-panel" id="closeContact">×</button>
+
+        <h2 class="contact-title">Görüşleriniz...</h2>
+        <p class="contact-sub">Soruların, önerilerin ya da sadece merhaba demek için...</p>
+
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Ad Soyad" required>
+        <input type="email" name="email" placeholder="E-posta" required>
+        <textarea name="message" placeholder="Mesajın..." required></textarea>
+
+        <button type="submit" class="send-btn">Gönder ✦</button>
+
+        <p class="form-success" id="formSuccess">✨ Notun bize ulaştı. Teşekkür ederiz.</p>
+    </form>
+
+    <div class="contact-info-mini">
+    <h3>✦ Doğrudan Ulaş</h3>
+    <p>Yazışmayı beklemek istemezsen:</p>
+    
+    <div class="contact-detail">
+        <i class="fas fa-envelope"></i>
+        <span>rituale.iletisim@gmail.com</span>
+    </div>
+
+    <div class="contact-detail">
+        <i class="fas fa-phone"></i>
+        <span>+90 (555) 123 45 67</span>
+    </div>
+    
+    <div class="social-icons">
+        <a href="https://instagram.com" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/lunaimer" target="_blank" class="social-icon">
+            <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/silanur-bas/" target="_blank" class="social-icon">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="social-icon">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+    </div>
+
+    </div>
+    <!--slide-in iletisim kısmı bitiş-->
+
+    <!--footer alanı başlangıc-->
+    <footer>
+        <p>&copy; 2025 RITUALÉ. Tüm Hakları Saklıdır.</p>
+    </footer>
+    <!--footer alanı bitiş-->
+
+
+    <script>
+    // ---------------------------------------------------
+    // BMI HESAPLAMA KODU
+    // ---------------------------------------------------
+    function hesaplaBMI() {
+        let boy = document.getElementById("boy").value;
+        let kilo = document.getElementById("kilo").value;
+        let sonucKutu = document.getElementById("bmiSonuc");
+
+        if (boy > 0 && kilo > 0) {
+            let boyMetre = boy / 100;
+            let bmi = kilo / (boyMetre * boyMetre);
+            let bmiFix = bmi.toFixed(1);
+
+            let durum = "";
+            let renk = "";
+            
+            if (bmi < 18.5) { durum = "Zayıf"; renk = "#FF9800"; }
+            else if (bmi < 25) { durum = "İdeal Kilo ✨"; renk = "#4CAF50"; }
+            else if (bmi < 30) { durum = "Fazla Kilo"; renk = "#FF5722"; }
+            else { durum = "Obezite"; renk = "#D32F2F"; }
+
+            sonucKutu.innerHTML = `BMI: ${bmiFix} <br> <span style="color:${renk}">${durum}</span>`;
+        } else {
+            sonucKutu.innerText = "Lütfen değerleri girin!";
+        }
+    }
+
+    // ---------------------------------------------------
+    // SU TAKİPÇİSİ KODLARI
+    // ---------------------------------------------------
+    
+    const MAKS_BARDAK = 8;
+    const MIN_ARALIK_SURESI = 0.3 * 60 * 1000; // 30 saniye
+    const MAKS_TIKLAMA_SAYISI = 2;
+    const SIFIRLAMA_ARALIGI = 24 * 60 * 60 * 1000; // 24 saat
+
+    // Elementleri Seç
+    const suEkleBtn = document.getElementById('su-ekle-btn');
+    const bardaklarKutu = document.getElementById('bardaklar-kutu');
+    const mesajAlan = document.getElementById('mesaj-alan');
+    const mevcutSayiSpan = document.getElementById('mevcut-sayi');
+
+    let durum = durumuYukle();
+
+    function durumuYukle() {
+        const veri = localStorage.getItem('suTakipciDurumu');
+        if (veri) {
+            let yukluDurum = JSON.parse(veri);
+            const simdi = Date.now();
+            if (simdi - yukluDurum.sonSifirlama > SIFIRLAMA_ARALIGI) {
+                return { sayi: 0, tiklamaZamanlari: [], sonSifirlama: simdi };
+            }
+            return yukluDurum;
+        }
+        return { sayi: 0, tiklamaZamanlari: [], sonSifirlama: Date.now() };
+    }
+
+    function durumuKaydet() {
+        localStorage.setItem('suTakipciDurumu', JSON.stringify(durum));
+    }
+
+    function bardaklariGoster() {
+        bardaklarKutu.innerHTML = '';
+        for (let i = 0; i < durum.sayi; i++) {
+            const bardak = document.createElement('span');
+            bardak.classList.add('bardak-ikon');
+            bardak.innerHTML = '🥛';
+            bardaklarKutu.appendChild(bardak);
+        }
+        mevcutSayiSpan.textContent = durum.sayi;
+        durumuKaydet();
+    }
+
+    function mesajGoster(metin, tip = '') {
+        mesajAlan.textContent = metin;
+        mesajAlan.className = 'mesaj';
+        if (tip) { mesajAlan.classList.add(tip === 'uyari' ? 'uyari' : 'basari'); }
+        if (tip !== 'basari' && metin !== '') {
+            setTimeout(() => { mesajAlan.textContent = ''; mesajAlan.className = 'mesaj'; }, 3000);
+        }
+    }
+
+    function tiklamaGuvenliMi() {
+        const simdi = Date.now();
+        const sonTiklamalar = durum.tiklamaZamanlari.filter(zamanDamgasi => {
+            return simdi - zamanDamgasi < MIN_ARALIK_SURESI;
+        });
+        durum.tiklamaZamanlari = sonTiklamalar;
+        return sonTiklamalar.length < MAKS_TIKLAMA_SAYISI;
+    }
+
+    function suTiklamaIslemi() {
+        if (durum.sayi >= MAKS_BARDAK) {
+            mesajGoster('Tebrikler, günlük hedefine ulaştın! 🎉', 'basari');
+            return;
+        }
+        if (!tiklamaGuvenliMi()) {
+            mesajGoster('Yavaş ol! Suyu zamana yayarak içmelisin.', 'uyari');
+            return;
+        }
+        
+        const simdi = Date.now();
+        durum.sayi++;
+        durum.tiklamaZamanlari.push(simdi);
+
+        bardaklariGoster();
+        mesajGoster(`Harika! ${durum.sayi}. bardağın eklendi.`, 'basari');
+        
+        if (durum.sayi >= MAKS_BARDAK) {
+            mesajGoster('Tebrikler! Günlük 8 bardak hedefine ulaştın. 🥳', 'basari');
+        }
+    }
+
+    // Olay dinleyici
+    if(suEkleBtn) {
+        suEkleBtn.addEventListener('click', suTiklamaIslemi);
+        bardaklariGoster();
+        if (durum.sayi >= MAKS_BARDAK) {
+            mesajGoster('Tebrikler! Günlük 8 bardak hedefine ulaştın. 🥳', 'basari');
+        }
+    }
+
+    // ---------------------------------------------------
+    // CİLT ANALİZ TESTİ KODLARI
+    // ---------------------------------------------------
+
+    
+const sorular = [
+    {
+        soru: "Cildinle baş başa kaldığında, temizleme sonrası ilk hissin ne olur?",
+        siklar: [
+            { text: "Biraz gergin… sanki neme susamış gibi", tip: "kuru" },
+            { text: "Hemen parlama başlar", tip: "yagli" },
+            { text: "Bazı bölgeler rahat, bazıları daha yağlı", tip: "karma" },
+            { text: "Dengeli ve sakin hissederim", tip: "normal" }
+        ]
+    },
+    {
+        soru: "Gözeneklerin aynada nasıl görünüyor?",
+        siklar: [
+            { text: "Gözeneklerim pek belli değil", tip: "kuru" },
+            { text: "Oldukça belirginler", tip: "yagli" },
+            { text: "Özellikle burun çevremde görünür", tip: "karma" },
+            { text: "Ne çok belirgin ne tamamen kayıp", tip: "normal" }
+        ]
+    },
+    {
+        soru: "Yeni bir ürün denediğinde cildin nasıl tepki verir?",
+        siklar: [
+            { text: "Kolayca kızarır, hassaslaşır", tip: "hassas" },
+            { text: "Genelde uyum sağlar", tip: "normal" }
+        ]
+    }
+];
+
+let mevcutSoruIndex = 0;
+let puanlar = { kuru: 0, yagli: 0, karma: 0, normal: 0, hassas: 0 };
+
+function testiAc() {
+    document.getElementById('testModal').style.display = 'flex';
+    testiSifirla();
+}
+
+function testiKapat() {
+    document.getElementById('testModal').style.display = 'none';
+}
+
+function soruGoster() {
+    let soruObj = sorular[mevcutSoruIndex];
+    document.getElementById('soru-baslik').innerText = "Soru " + (mevcutSoruIndex + 1);
+    document.getElementById('soru-metni').innerText = soruObj.soru;
+    
+    let siklarAlani = document.getElementById('siklar-alani');
+    siklarAlani.innerHTML = ""; // Önceki şıkları temizle
+
+    soruObj.siklar.forEach(sik => {
+        let btn = document.createElement('button');
+        btn.innerText = sik.text;
+        btn.className = 'option-btn';
+        btn.onclick = function() { cevapVer(sik.tip); };
+        siklarAlani.appendChild(btn);
+    });
+}
+
+function cevapVer(tip) {
+    puanlar[tip]++; // Seçilen tipin puanını artır
+    
+    mevcutSoruIndex++; // Sonraki soruya geç
+
+    if (mevcutSoruIndex < sorular.length) {
+        soruGoster(); // Sorular bitmediyse yenisini göster
+    } else {
+        sonucuHesapla(); // Bittiyse sonucu göster
+    }
+}
+
+
+function sonucuHesapla() {
+    document.getElementById('test-icerik').style.display = 'none';
+    document.getElementById('sonuc-ekrani').style.display = 'block';
+
+    let kazananTip = Object.keys(puanlar).reduce((a, b) => puanlar[a] > puanlar[b] ? a : b);
+
+    let sonucBaslik = document.getElementById('cilt-tipi-sonuc');
+    let sonucAciklama = document.getElementById('cilt-aciklamasi');
+    
+    if(kazananTip === 'kuru') {
+        sonucBaslik.innerText = "KURU CİLT 🌵";
+        sonucAciklama.innerText = "Cildin senden yavaşlamanı istiyor. Neme, şefkate ve derin bir nefese ihtiyacı var. Bugün ritüelin: besle, koru ve acele etme.";
+    } else if(kazananTip === 'yagli') {
+        sonucBaslik.innerText = "YAĞLI CİLT 💧";
+        sonucAciklama.innerText = "Cildin canlı, güçlü ama denge arıyor. Fazlalıkları nazikçe bırak, ferahlat ve hafif dokunuşlarla ilerle. Az ama doğru yeter.";
+    } else if(kazananTip === 'karma') {
+        sonucBaslik.innerText = "KARMA CİLT ⚖️";
+        sonucAciklama.innerText = "Cildin farklı ihtiyaçları aynı anda taşıyor. Dinle, ayırt et ve dengeyi kur. Ritüelin uyum üzerine.";
+    } else if(kazananTip === 'hassas') {
+        sonucBaslik.innerText = "HASSAS CİLT 🌸";
+        sonucAciklama.innerText = "Cildin incelikli ve sezgisel. Ona nazik davranıldığında parlıyor. Ritüelin: sadeleş, yumuşat ve güvenli alan yarat.";
+    } else {
+        sonucBaslik.innerText = "NORMAL CİLT ✨";
+        sonucAciklama.innerText = "Cildin dengede. Bu uyumu sürdürmek için ritüelini aksatma. Küçük ama istikrarlı dokunuşlar mucize yaratır.";
+    }
+}
+
+function testiSifirla() {
+    mevcutSoruIndex = 0;
+    puanlar = { kuru: 0, yagli: 0, karma: 0, normal: 0, hassas: 0 };
+    document.getElementById('test-icerik').style.display = 'block';
+    document.getElementById('sonuc-ekrani').style.display = 'none';
+    soruGoster();
+}
+
+    // ---------------------------------------------------
+    // AÇILIR KAPANIR ILETISIM KODLARI
+    // ---------------------------------------------------
+    const openBtn = document.getElementById("openContact");
+    const closeBtn = document.getElementById("closeContact");
+    const panel = document.getElementById("contactPanel");
+    const overlay = document.getElementById("contactOverlay");
+
+    openBtn.addEventListener("click", () => {
+    panel.classList.add("active");
+    overlay.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    panel.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+    panel.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+document.querySelector("#contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_y9wsv9o",
+        "template_gkrpred",
+        this
+    ).then(() => {
+        const successMsg = document.getElementById("formSuccess");
+
+        successMsg.classList.add("show"); 
+        
+        this.reset();
+
+        setTimeout(() => {
+            successMsg.classList.remove("show"); 
+        }, 4000);
+    }).catch((error) => {
+        console.error("Gönderme hatası:", error);
+        alert("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
+    });
+});
+    // ---------------------------------------------------
+    // MOBIL UYUMLULUK
+    // ---------------------------------------------------
+    // Hamburger menü toggle için
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Menü linklerine tıklayınca menüyü kapat (mobilde)
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Ekran boyutu değişince kontrol et (tablet/mobil geçişlerinde)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            navMenu.style.display = 'flex';
+        } else {
+            if (!navMenu.classList.contains('active')) {
+                navMenu.style.display = 'none';
+            }
+        }
+    });
+});
+
+
+    // ---------------------------------------------------
+    // EPOSTA GONDERME
+    // ---------------------------------------------------
+</script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("3wgKHCVsfFIkQPC4q");
+})();
+</script>
+</body>
+</html>

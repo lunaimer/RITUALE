@@ -1,0 +1,370 @@
+html {
+    scroll-behavior: smooth; /* Yumuşak kaydırma efekti */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FBF7F3;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* SCROLLBAR GİDER */
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #F6E9EC;
+    box-shadow: 0 2px 15px rgba(75, 0, 130, 0.05); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff7b00;
+    font-style: italic;
+}
+
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #77a4f8;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.nav-bar a:hover {
+    color: #5a93fc;
+}
+
+.split-container {
+    display: flex;
+    min-height: 100vh; /* Ekran boyu kadar ol, gerekirse uza */
+    position: relative;
+    overflow-x: hidden; /* Yanlardan taşmayı engelle */
+}
+
+.day-side, .night-side {
+    display: flex;
+    flex: 1; /* Eşit paylaşım */
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    transition: all 0.5s ease-in-out;
+}
+
+.day-side {
+    background: linear-gradient(120deg, #f6d365 0%, #f08567 100%);
+}
+
+.night-side {
+    background: linear-gradient(to top, #309dd0 0%, #330867 100%);
+}
+
+.day-side:hover, .night-side:hover {
+    flex: 2;
+}
+
+.day-side h2, .night-side h2 {
+    font-size: 36px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    z-index: 2; 
+}
+
+.day-side h2 { 
+    color: #ffece7; 
+}
+
+.night-side h2 { 
+    color: #e0eaff; 
+}
+
+.d-invite {
+    color: #ffece7;
+}
+
+.n-invite {
+    color: #e0eaff;
+}
+
+.d-invite, .n-invite {
+    font-size: 17px;
+    opacity: 0.75;
+    font-style: italic;
+}
+
+#nb-rutins {
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: fixed; 
+    width: 95%;
+    z-index: 100;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* İki sütun */
+    gap: 15px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.centered-card {
+    grid-column: span 2; 
+    width: 80%;
+    justify-self: center;
+}
+
+.glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(13px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+    border-radius: 20px; 
+    padding: 20px; 
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden; /* Resim dışarı taşmasın */
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 15px 40px rgba(0, 0, 0, 0.12);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px; 
+    font-weight: bold;
+    letter-spacing: 1px; 
+    text-shadow: 0 13px 4px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+}
+
+.card-bg { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center center; 
+    z-index: 0; 
+    transition: transform 0.5s ease;
+}
+
+.glass-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); 
+    z-index: 1; 
+    pointer-events: none;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.25); 
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
+}
+
+.glass-card:active {
+    transform: scale(0.95);
+}
+
+.grid-wrapper.active-mode {
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: auto auto; 
+    gap: 10px;
+}
+
+.grid-wrapper.active-mode .glass-card.active {
+    grid-column: 1 / -1; /* Tüm genişliği kapla */
+    grid-row: 1; 
+    height: auto; /* İçeriğe göre uzasın */
+    min-height: 400px; /* En az bu kadar olsun */
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 10;
+    cursor: default;
+    justify-content: flex-start;
+    padding-top: 40px;
+}
+
+/* Kart Aktif Olduğunda Arka Plan Resmi Yok Olsun */
+.grid-wrapper.active-mode .glass-card.active .card-bg {
+    opacity: 1;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.1);
+    transition: all 0.8s ease;
+}
+
+/* SEÇİLMEYEN KARTLAR (KÜÇÜK) */
+.grid-wrapper.active-mode .glass-card:not(.active) {
+    grid-row: 2; 
+    grid-column: span 1; 
+    height: 80px;
+    min-height: 80px;
+    padding: 5px;
+    opacity: 0.6; 
+}
+
+/* Küçülen kartların başlığı */
+.grid-wrapper.active-mode .glass-card:not(.active) h3 {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+/* Küçülen kart hover */
+.grid-wrapper.active-mode .glass-card:not(.active):hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.routine-timeline {
+    position: relative;
+    width: 100%;
+    max-width: 450px; 
+    margin-top: 20px; 
+    display: none;
+    padding: 10px 0;
+}
+
+.routine-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 13px; 
+    opacity: 0; 
+    width: 100%;
+}
+
+.step-circle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: #f37908;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    background-clip: padding-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 14px; 
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.step-text {
+    width: 42%; 
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px; 
+    border-radius: 13px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* TEK SAYILAR (SAĞDA) */
+.timeline-item:nth-child(odd) { 
+    flex-direction: row; 
+}
+
+.timeline-item:nth-child(odd) .step-text {
+    margin-left: auto; 
+    margin-right: 0; 
+    text-align: left;
+    transform: translateX(20px); /* Mesafeyi azalttık */
+}
+
+/* ÇİFT SAYILAR (SOLDA) */
+.timeline-item:nth-child(even) { 
+    flex-direction: row-reverse; 
+}
+.timeline-item:nth-child(even) .step-text {
+    margin-right: auto; 
+    margin-left: 0; 
+    text-align: right;
+    transform: translateX(-20px); /* Mesafeyi azalttık */
+}
+
+.step-text h4 {
+    margin: 0;
+    font-size: 14px; 
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+    font-style: italic;
+    text-shadow: 0 13px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-text p {
+    margin: 0;
+    font-size: 13px; 
+    color: #ddd;
+    line-height: 1.3;
+    font-weight: 700;
+    text-shadow: 0 13px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ANİMASYON --- */
+.grid-wrapper.active-mode .glass-card.active .routine-timeline { 
+    display: block; 
+}
+
+.grid-wrapper.active-mode .glass-card.active .timeline-item {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.glass-card.active .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.glass-card.active .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.glass-card.active .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.glass-card.active .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.glass-card.active .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
