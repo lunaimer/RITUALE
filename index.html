@@ -654,35 +654,43 @@ document.querySelector("#contactForm").addEventListener("submit", function(e){
     // ---------------------------------------------------
     // MOBIL UYUMLULUK
     // ---------------------------------------------------
-    // Hamburger menü toggle için
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
+    const body = document.body;
     
-    hamburger.addEventListener('click', function() {
+    console.log("JavaScript yüklendi!"); // Test için
+    
+    hamburger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log("Hamburger tıklandı!"); // Test için
+        
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        console.log("Menu active mi?", navMenu.classList.contains('active'));
+        console.log("Body menu-open mu?", body.classList.contains('menu-open'));
     });
     
-    // Menü linklerine tıklayınca menüyü kapat (mobilde)
+    // Menü linklerine tıklayınca menüyü kapat
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            body.classList.remove('menu-open');
         });
     });
     
-    // Ekran boyutu değişince kontrol et (tablet/mobil geçişlerinde)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
+    // Menü dışına tıklayınca kapat
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
-            navMenu.style.display = 'flex';
-        } else {
-            if (!navMenu.classList.contains('active')) {
-                navMenu.style.display = 'none';
-            }
+            body.classList.remove('menu-open');
         }
     });
 });

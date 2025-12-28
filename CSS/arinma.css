@@ -1,17 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth; /* Yumuşak kaydırma efekti */
 }
+
 body {
     margin: 0;
     padding: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FBF7F3;
-    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden; /* SCROLLBAR GİDER */
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    overflow-y: auto;   
 }
 
 .nav-bar {
@@ -50,13 +61,66 @@ html, body {
     color: #C86B8A;
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #A33A5E;
+}
+
+/* --- MOBİL CİHAZLAR İÇİN (768px ve altı) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; 
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; 
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); 
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); 
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;   
+        flex-direction: column;
+        background-color: #F6E9EC; 
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0; 
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+}
+
 .main-wrapper {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /*yukarıdan baslat*/
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     padding-top: 40px;
 }
 
@@ -289,4 +353,45 @@ html, body {
 
 .skin-card.flipped .skin-card-back{
     box-shadow: 0 28px 70px rgba(184, 74, 118, 0.22);
+}
+
+/* --- TABLET VE MOBİL İÇİN DÜZENLEMELER --- */
+
+@media (max-width: 1024px) {
+    /* Tabletlerde kartlar 2'li veya 3'lü dizilsin */
+    .skin-card-list {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Mobil Telefonlar --- */
+
+    .main-wrapper {
+        padding-top: 20px;
+    }
+
+    .ritual-intro {
+        margin-bottom: 30px; 
+    }
+
+    .ritual-intro h1 {
+        font-size: 28px; 
+    }
+
+    .ritual-tagline {
+        font-size: 18px;
+    }
+
+    .skin-card-list {
+        flex-direction: column; 
+        align-items: center;    
+        gap: 40px;              
+    }
+
+    .skin-card {
+        width: 100%;        
+        max-width: 320px;  
+        height: 400px;
+    }
 }

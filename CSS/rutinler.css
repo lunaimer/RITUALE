@@ -1,17 +1,13 @@
 html {
     scroll-behavior: smooth; /* Yumuşak kaydırma efekti */
 }
+
 body {
     margin: 0;
     padding: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FBF7F3;
     box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden; /* SCROLLBAR GİDER */
 }
 
 .nav-bar {
@@ -48,6 +44,102 @@ html, body {
 
 .nav-bar a:hover {
     color: #5a93fc;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 9999; 
+    position: relative; 
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ff7b00;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+/* MOBİL GÖRÜNÜM AYARLARI (768px ve altı) */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    #nb-rutins {
+        padding: 16px 20px;
+        background: rgba(246, 233, 236, 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    /* Hamburger görünür */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Menü – kapalı hali */
+    .nav-links {
+        position: fixed;
+        top: 100%;
+        margin-top: 0 !important;
+        padding-top: 20px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(246, 233, 236, 0.95));
+        backdrop-filter: blur(13px);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 110px 0 40px;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    /* Menü – açık hali */
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Menü yazıları */
+    .nav-links li a {
+        color: #9b2c5d;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    /* X animasyonu */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 768px) {
+    body.menu-open .split-container {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body.menu-open .day-side,
+    body.menu-open .night-side {
+        padding-top: 0;
+    }
 }
 
 .split-container {

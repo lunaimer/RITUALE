@@ -10,7 +10,12 @@
     <!--Logo ve navbar kısmı başlangıç-->
     <nav class="nav-bar" id="nb-rutins">
         <div class="logo">RITUALÉ</div>
-        <ul>
+        <div class="hamburger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
             <li><a href="index.html#tavsiyeler">Tavsiyeler</a></li>
             <li><a href="index.html#rutinler">Rutinler</a></li>
@@ -546,6 +551,25 @@
             wrapper.classList.add('active-mode');
         });
     });
+
+    const hamburger = document.querySelector(".hamburger-menu");
+    const navLinks = document.querySelector(".nav-links");
+
+    // İkona tıklayınca aç/kapa
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        
+    });
+
+    // Linke tıklayınca menüyü kapat (Opsiyonel: Kullanıcı bir yere gidince menü kapansın)
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+
 </script>
 </body>
 </html>

@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -6,13 +12,17 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
     background-color: #FBF6F1;
+    overflow-x: hidden;
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden; /* SCROLLBAR GİDER */
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    overflow-y: auto;   
 }
 
 .nav-bar {
@@ -49,6 +59,58 @@ html, body {
 
 .nav-bar a:hover {
     color: #be6d3b;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #8A5A3C;
+}
+
+/* --- MOBİL CİHAZLAR İÇİN (768px ve altı) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; 
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; 
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); 
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;  
+        flex-direction: column;
+        background-color: rgba(247, 238, 230, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s; 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0; 
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
 }
 
 .main-content {
@@ -290,4 +352,45 @@ html, body {
 
 .p-cards.flipped .p-card-back{
     box-shadow: 0 28px 70px rgba(116, 105, 10, 0.22);
+}
+
+/* --- TABLET VE MOBİL İÇİN DÜZENLEMELER --- */
+
+@media (max-width: 1024px) {
+    /* Tabletlerde kartlar 2'li veya 3'lü dizilsin */
+    .p-card-list {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Mobil Telefonlar --- */
+
+    .main-content {
+        padding-top: 20px;
+    }
+
+    .protection-container {
+        margin-bottom: 30px; 
+    }
+
+    .protection-container h1 {
+        font-size: 28px; 
+    }
+
+    .protect-tagline {
+        font-size: 18px;
+    }
+
+    .p-cards-list {
+        flex-direction: column;
+        align-items: center;   
+        gap: 40px;              
+    }
+
+    .p-cards {
+        width: 100%;       
+        max-width: 320px;   
+        height: 400px;     
+    }
 }

@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth; /* Yumuşak kaydırma efekti */
 }
@@ -9,6 +15,11 @@ body {
 }
 
 /*Logo ve navbar kısmı başlangıç*/
+
+html.menu-open, body.menu-open {
+    overflow: hidden;
+    height: 100%;
+}
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -19,6 +30,7 @@ body {
     position: sticky; 
     top: 0;
     z-index: 1000; 
+    min-height: 60px;
 }
 
 .logo {
@@ -33,6 +45,9 @@ body {
     flex-direction: column;
     cursor: pointer;
     padding: 5px;
+    background: none;
+    border: none;
+    z-index: 1002; 
 }
 
 .hamburger span {
@@ -67,6 +82,8 @@ body {
     color: #e07ac2;
 }
 
+
+
 /* Tablet için (768px - 1024px) */
 @media screen and (max-width: 1024px) {
     .nav-bar {
@@ -87,13 +104,20 @@ body {
 @media screen and (max-width: 768px) {
     .nav-bar {
         padding: 15px 20px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap; 
     }
     
     /* Hamburger butonunu göster */
     .hamburger {
         display: flex;
-        z-index: 1001;
+        z-index: 1002;
+        order: 2; /* Sağ tarafa taşı */
+    }
+    
+    /* Logo sola, hamburger sağa */
+    .logo {
+        order: 1;
+        flex-grow: 1;
     }
     
     /* Hamburger aktif hale geldiğinde */
@@ -115,12 +139,17 @@ body {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Navbar'ın tam altına */
         left: 0;
+        right: 0;
         background-color: rgba(254, 241, 246, 0.98);
         padding: 20px 0;
+        margin: 0;
         box-shadow: 0 10px 20px rgba(75, 0, 130, 0.1);
         border-top: 1px solid rgba(192, 52, 115, 0.1);
+        z-index: 1001;
+        max-height: calc(100vh - 60px); 
+        overflow-y: auto; /* İçerik uzunsa scroll */
     }
     
     /* Aktif olduğunda menüyü göster */
@@ -130,13 +159,21 @@ body {
     
     .nav-menu li {
         text-align: center;
-        margin: 10px 0;
+        margin: 0;
+        width: 100%;
     }
     
     .nav-menu a {
         display: block;
-        padding: 12px 20px;
+        padding: 15px 20px;
         font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(192, 52, 115, 0.1);
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
     }
     
     .nav-menu a:hover {
@@ -155,8 +192,16 @@ body {
     }
     
     .nav-menu a {
-        padding: 15px 20px;
+        padding: 12px 15px;
     }
+}
+
+/* Menü açıkken body scroll'unu engelle */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 /*Logo ve navbar kısmı bitiş*/
 
@@ -205,7 +250,7 @@ body {
     padding: 15px 40px;
     font-size: 18px;
     border-radius: 13px;
-    cursor: pointer; /* İmleci buton üzerine geldiğinde el işareti yapar */
+    cursor: pointer; 
     font-weight: 600;
     box-shadow: 0 12px 30px rgba(212, 106, 156, 0.25);
     transition: all 0.3s ease;
@@ -552,8 +597,8 @@ body {
     
     .info-card {
         padding: 40px 30px;
-        flex: 0 1 calc(50% - 25px); /* 2'li grid yap */
-        min-width: auto; /* Min width'i kaldır */
+        flex: 0 1 calc(50% - 25px); 
+        min-width: auto;
     }
     
     .rituel-title {
@@ -587,8 +632,8 @@ body {
     .info-card {
         padding: 35px 25px;
         flex: 0 1 100%; /* Tek sütun yap */
-        max-width: 500px; /* Maksimum genişlik */
-        margin: 0 auto; /* Ortala */
+        max-width: 500px; 
+        margin: 0 auto; 
     }
     
     .rituel-title {
@@ -891,7 +936,7 @@ body {
     }
     
     .routine-banner-container {
-        flex-direction: column; /* Dikey düzene geç */
+        flex-direction: column; 
         gap: 40px;
         padding: 50px 35px;
         min-height: auto;
@@ -900,15 +945,15 @@ body {
     
     .routine-text {
         max-width: 100%;
-        order: 1; /* Metin üstte */
+        order: 1;
     }
     
     .routine-image-box {
         max-width: 100%;
-        order: 2; /* Resim altta */
+        order: 2; 
         box-shadow: 0 0 0 8px rgba(243,248,245,0.6);
         border-radius: 30px;
-        transform: translateX(0); /* Mobilde translate'i kaldır */
+        transform: translateX(0);
     }
     
     .routine-image-box img {
@@ -1040,7 +1085,7 @@ body {
     }
     
     .routine-badges {
-        flex-direction: column; /* Badgeleri dikey yap */
+        flex-direction: column; 
         align-items: center;
         gap: 8px;
     }
@@ -1052,13 +1097,13 @@ body {
     }
     
     .routine-steps {
-        flex-direction: column; /* Adımları dikey yap */
+        flex-direction: column; 
         gap: 5px;
     }
     
     .routine-steps span:nth-child(2),
     .routine-steps span:nth-child(4) {
-        display: none; /* Okları küçük ekranda gizle */
+        display: none;
     }
 }
 /*Rutin Section alanı bitis*/
@@ -2142,32 +2187,24 @@ body {
         gap: 50px;
     }
     
-    /* Çizgileri kaldır veya değiştir */
-    .ritual-library::before,
-    .ritual-library::after {
-        display: none; /* Tablet ve mobilde çizgileri kaldır */
+    .ritual-library::before, .ritual-library::after {
+        display: none; 
     }
     
-    /* Her satırda iki container olacak */
-    .article-container,
-    .magazine-container {
+    .article-container, .magazine-container {
         grid-column: span 1;
     }
     
     .video-container {
-        grid-column: span 2; /* Video container tam genişlik */
+        grid-column: span 2; 
     }
     
-    .article-cards,
-    .magazine-cards,
-    .video-cards {
+    .article-cards, .magazine-cards, .video-cards {
         grid-template-columns: 1fr;
         gap: 20px;
     }
     
-    .article-cards > :nth-child(3),
-    .magazine-cards > :nth-child(3),
-    .video-cards > :nth-child(3) {
+    .article-cards > :nth-child(3), .magazine-cards > :nth-child(3), .video-cards > :nth-child(3) {
         grid-column: 1;
     }
     
@@ -2202,22 +2239,16 @@ body {
         grid-column: span 1;
     }
     
-    .article-title,
-    .magazine-title,
-    .video-title {
+    .article-title, .magazine-title, .video-title {
         font-size: 22px;
     }
     
-    .article-description,
-    .magazine-description,
-    .video-description {
+    .article-description, .magazine-description, .video-description {
         font-size: 15px;
         margin-bottom: 25px;
     }
     
-    .article-cards,
-    .magazine-cards,
-    .video-cards {
+    .article-cards, .magazine-cards, .video-cards {
         gap: 18px;
     }
     
@@ -2253,15 +2284,11 @@ body {
         gap: 35px;
     }
     
-    .article-title,
-    .magazine-title,
-    .video-title {
+    .article-title, .magazine-title, .video-title {
         font-size: 20px;
     }
     
-    .article-description,
-    .magazine-description,
-    .video-description {
+    .article-description, .magazine-description, .video-description {
         font-size: 14.5px;
         margin-bottom: 20px;
     }
@@ -2322,8 +2349,7 @@ body {
         font-size: 14px;
     }
     
-    .video-creator,
-    .video-note {
+    .video-creator, .video-note {
         font-size: 12.5px;
     }
 }
@@ -2338,21 +2364,15 @@ body {
         font-size: 24px;
     }
     
-    .article-title,
-    .magazine-title,
-    .video-title {
+    .article-title, .magazine-title, .video-title {
         font-size: 18px;
     }
     
-    .article-description,
-    .magazine-description,
-    .video-description {
+    .article-description, .magazine-description, .video-description {
         font-size: 14px;
     }
     
-    .article-cards,
-    .magazine-cards,
-    .video-cards {
+    .article-cards, .magazine-cards, .video-cards {
         gap: 15px;
     }
     
@@ -2376,16 +2396,12 @@ body {
 
 /* Dokunmatik cihazlar için hover ayarları */
 @media (hover: none) and (pointer: coarse) {
-    .a-card:hover,
-    .magazine:hover,
-    .video-card:hover {
+    .a-card:hover, .magazine:hover, .video-card:hover {
         transform: none;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     }
     
-    .a-card:active,
-    .magazine:active,
-    .video-card:active {
+    .a-card:active, .magazine:active, .video-card:active {
         transform: translateY(-2px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     }
@@ -2447,7 +2463,8 @@ body {
     top: 0;
     right: -500px; /*basta ekran dısı olsun diye*/
     width: 360px;
-    height: 100vh;
+    max-width: 100%;
+    height: 100dvh;
     background: linear-gradient(135deg, #f8f5f7, #ffeff9);
     padding: 32px;
     transition: right 0.35s ease;
@@ -2455,7 +2472,7 @@ body {
     box-shadow: -15px 0 50px rgba(72, 47, 75, 0.15);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto;
     border-left: 1px solid rgba(139, 122, 109, 0.1);
 }
 
@@ -2727,8 +2744,7 @@ body {
         font-size: 14.5px;
     }
     
-    .contact-panel input,
-    .contact-panel textarea {
+    .contact-panel input, .contact-panel textarea {
         padding: 14px 10px;
         font-size: 14.5px;
     }
@@ -2763,26 +2779,26 @@ body {
         font-size: 15px;
         min-width: 140px;
         box-shadow: 0 6px 25px rgba(216, 32, 170, 0.3);
-        border-radius: 40px; /* Daha yuvarlak */
+        border-radius: 40px; 
     }
     
     .contact-fab::before {
-        font-size: 20px; /* İkonu büyüt */
+        font-size: 20px; 
     }
     
     .contact-panel {
-        width: 100%; /* Tam ekran */
-        max-width: 100%;
-        padding: 25px 20px;
+        width: 100%; 
+        padding: 10px;
+        padding-bottom: 20px;
         border-radius: 0;
         border-left: none;
         box-shadow: none;
     }
-    
+
     .contact-title {
         font-size: 24px;
         margin-top: 10px;
-        margin-right: 50px; /* Kapat butonuyla çakışmasın */
+        margin-right: 50px; 
     }
     
     .contact-sub {
@@ -2793,16 +2809,15 @@ body {
     .close-panel {
         top: 20px;
         right: 20px;
-        width: 44px; /* Mobilde daha büyük tıklama alanı */
+        width: 44px; 
         height: 44px;
         font-size: 28px;
         background: rgba(255, 255, 255, 0.9);
     }
     
-    .contact-panel input,
-    .contact-panel textarea {
-        padding: 16px 12px; /* Mobilde daha büyük */
-        font-size: 16px; /* iOS zoom'u engellemek için */
+    .contact-panel input, .contact-panel textarea {
+        padding: 16px 12px;
+        font-size: 16px; 
         margin-bottom: 18px;
         border-radius: 14px;
     }
@@ -2831,12 +2846,11 @@ body {
     }
     
     .social-icon {
-        width: 44px; /* Mobilde daha büyük */
+        width: 44px; 
         height: 44px;
         font-size: 18px;
     }
     
-    /* Mobilde hover efektlerini touch-friendly yap */
     .contact-fab:hover {
         transform: translateY(-2px);
     }
@@ -2887,8 +2901,7 @@ body {
         font-size: 26px;
     }
     
-    .contact-panel input,
-    .contact-panel textarea {
+    .contact-panel input, .contact-panel textarea {
         padding: 14px 10px;
         font-size: 15px;
         margin-bottom: 16px;
@@ -3025,13 +3038,7 @@ body {
 
 /* Performans optimizasyonu */
 @media (prefers-reduced-motion: reduce) {
-    .contact-fab,
-    .contact-panel,
-    .contact-overlay,
-    .close-panel,
-    .send-btn,
-    .contact-detail,
-    .social-icon {
+    .contact-fab, .contact-panel, .contact-overlay, .close-panel, .send-btn, .contact-detail, .social-icon {
         transition: none;
     }
     
